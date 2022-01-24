@@ -93,7 +93,10 @@ public class Woo {
 		AudioInputStream ais = AudioSystem.getAudioInputStream(file);
 		Clip clipCity = AudioSystem.getClip();
 		clipCity.open(ais);
+    FloatControl gainControl = (FloatControl) clipCity.getControl(FloatControl.Type.MASTER_GAIN);
+    gainControl.setValue(-30.0f);
     clipCity.start();
+    clipCity.loop(Clip.LOOP_CONTINUOUSLY);
 
     wait(1);
     System.out.println();
@@ -216,6 +219,9 @@ public class Woo {
         }
       }
       else if (runawayOr.equals("battle")) {
+        File file1 = new File("victory.au");
+        AudioInputStream ais1 = AudioSystem.getAudioInputStream(file1);
+        Clip clipVictory = AudioSystem.getClip();
         wait(2);
         System.out.print("\u001b[38;2;180;180;180m");
         System.out.println("\nYou accept the challenge and engage in battle.");
@@ -224,8 +230,13 @@ public class Woo {
         clipCity.close();
         boolean win = battle(name, pok, region);
         if (win == true) {
-          clipCity.setMicrosecondPosition(0);
-          clipCity.start();
+          // clipCity.setMicrosecondPosition(0);
+          // clipCity.start();
+          clipVictory.open(ais1);
+          FloatControl gainControlV1 = (FloatControl) clipVictory.getControl(FloatControl.Type.MASTER_GAIN);
+          gainControlV1.setValue(-30.0f);
+          clipVictory.start();
+          clipVictory.loop(Clip.LOOP_CONTINUOUSLY);
           System.out.println();
           wait(2);
           System.out.print("\u001b[38;2;180;180;180m");
@@ -236,10 +247,14 @@ public class Woo {
           name._numPokeball = name._numPokeball + 1;
         }
         clipCity.close();
+        clipVictory.close();
         goToNurse(name, region);
         return cont;
       }
       else {
+        File file1 = new File("victory.au");
+        AudioInputStream ais1 = AudioSystem.getAudioInputStream(file1);
+        Clip clipVictory = AudioSystem.getClip();
         wait(2);
         System.out.print("\u001b[38;2;180;180;180m");
         System.out.println("\nThat is not a valid response. You engage in battle...");
@@ -250,8 +265,13 @@ public class Woo {
         clipCity.close();
         boolean win = battle(name, pok, region);
         if (win == true) {
-          clipCity.setMicrosecondPosition(0);
-          clipCity.start();
+          // clipCity.setMicrosecondPosition(0);
+          // clipCity.start();
+          clipVictory.open(ais1);
+          FloatControl gainControlV2 = (FloatControl) clipVictory.getControl(FloatControl.Type.MASTER_GAIN);
+          gainControlV2.setValue(-30.0f);
+          clipVictory.start();
+          clipVictory.loop(Clip.LOOP_CONTINUOUSLY);
           System.out.println();
           wait(2);
           System.out.print("\u001b[38;2;180;180;180m");
@@ -262,6 +282,7 @@ public class Woo {
           name._numPokeball = name._numPokeball + 1;
         }
         clipCity.close();
+        clipVictory.close();
         goToNurse(name, region);
         return cont;
       }
@@ -347,12 +368,21 @@ public class Woo {
           boolean win = battle(name, pok, region);
           clipCity.setMicrosecondPosition(0);
           clipCity.start();
+          clipCity.loop(Clip.LOOP_CONTINUOUSLY);
           if (win == false) {
             clipCity.close();
             goToNurse(name, region);
             return cont;
           }
           else {
+            File file1 = new File("victory.au");
+            AudioInputStream ais1 = AudioSystem.getAudioInputStream(file1);
+            Clip clipVictory = AudioSystem.getClip();
+            clipVictory.open(ais1);
+            FloatControl gainControlV5 = (FloatControl) clipVictory.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControlV5.setValue(-30.0f);
+            clipVictory.start();
+            clipVictory.loop(Clip.LOOP_CONTINUOUSLY);
             String catchPokemon = "";
             wait(2);
             System.out.print("\u001b[38;2;180;180;180m");
@@ -371,6 +401,7 @@ public class Woo {
               catchP(name, pok, region);
               wait(1);
               clipCity.close();
+              clipVictory.close();
               goToNurse(name, region);
               return cont;
             }
@@ -380,11 +411,13 @@ public class Woo {
               System.out.println("\nInvalid answer. You do not catch the Pokemon.");
               wait(1);
               clipCity.close();
+              clipVictory.close();
               goToNurse(name, region);
               return cont;
             }
             else {
               clipCity.close();
+              clipVictory.close();
               goToNurse(name, region);
               return cont;
             }
@@ -444,12 +477,21 @@ public class Woo {
         boolean win = battle(name, pok, region);
         clipCity.setMicrosecondPosition(0);
         clipCity.start();
+        clipCity.loop(Clip.LOOP_CONTINUOUSLY);
         if(win == false) {
           clipCity.close();
           goToNurse(name, region); // if lose, go to nurse to heal
           return cont;
         }
         else {
+          File file1 = new File("victory.au");
+          AudioInputStream ais1 = AudioSystem.getAudioInputStream(file1);
+          Clip clipVictory = AudioSystem.getClip();
+          clipVictory.open(ais1);
+          FloatControl gainControlV3 = (FloatControl) clipVictory.getControl(FloatControl.Type.MASTER_GAIN);
+          gainControlV3.setValue(-30.0f);
+          clipVictory.start();
+          clipVictory.loop(Clip.LOOP_CONTINUOUSLY);
           String catchPokemon = "";
           wait(2);
           System.out.print("\u001b[38;2;180;180;180m");
@@ -468,6 +510,7 @@ public class Woo {
             catchP(name, pok, region);
             wait(1);
             clipCity.close();
+            clipVictory.close();
             goToNurse(name, region);
             return cont;
           }
@@ -476,17 +519,22 @@ public class Woo {
             System.out.print("\u001b[38;2;180;180;180m");
             System.out.println("\nInvalid answer. You do not catch the Pokemon.");
             clipCity.close();
+            clipVictory.close();
             goToNurse(name, region);
             return cont;
           }
           else {
             clipCity.close();
+            clipVictory.close();
             goToNurse(name, region);
             return cont;
           }
         }
       }
       else {
+        File file1 = new File("victory.au");
+        AudioInputStream ais1 = AudioSystem.getAudioInputStream(file1);
+        Clip clipVictory = AudioSystem.getClip();
         wait(2);
         System.out.print("\u001b[38;2;180;180;180m");
         System.out.println("\nThat is not a valid response. You engage in battle.");
@@ -498,7 +546,13 @@ public class Woo {
         boolean win = battle(name, pok, region);
         clipCity.setMicrosecondPosition(0);
         clipCity.start();
-        if (win == true){
+        clipCity.loop(Clip.LOOP_CONTINUOUSLY);
+        if (win == true) {
+          clipVictory.open(ais1);
+          FloatControl gainControlV4 = (FloatControl) clipVictory.getControl(FloatControl.Type.MASTER_GAIN);
+          gainControlV4.setValue(-30.0f);
+          clipVictory.start();
+          clipVictory.loop(Clip.LOOP_CONTINUOUSLY);
           String catchPokemon = "";
           wait(2);
           System.out.print("\u001b[38;2;180;180;180m");
@@ -517,6 +571,7 @@ public class Woo {
           if (catchPokemon.equals("yes")) {
             catchP(name, pok, region);
             clipCity.close();
+            clipVictory.close();
             goToNurse(name, region);
             return cont;
           }
@@ -526,17 +581,20 @@ public class Woo {
             System.out.println("\nInvalid answer. You do not catch the Pokemon.");
             wait(1);
             clipCity.close();
+            clipVictory.close();
             goToNurse(name, region);
             return cont;
           }
           else {
             clipCity.close();
+            clipVictory.close();
             goToNurse(name, region);
             return cont;
           }
         }
         else {
           clipCity.close();
+          clipVictory.close();
           goToNurse(name, region);
           return cont;
         }
@@ -545,11 +603,11 @@ public class Woo {
   }
 
   public static void catchP(Player name, Pokemon pokName, String region) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-    File file = new File("victory.au");
-    AudioInputStream ais = AudioSystem.getAudioInputStream(file);
-    Clip clipVictory = AudioSystem.getClip();
-    clipVictory.open(ais);
-    clipVictory.start();
+    // File file = new File("victory.au");
+    // AudioInputStream ais = AudioSystem.getAudioInputStream(file);
+    // Clip clipVictory = AudioSystem.getClip();
+    // clipVictory.open(ais);
+    // clipVictory.start();
 
     int random = (int) ((Math.random() * 10));
     wait(2);
@@ -560,7 +618,7 @@ public class Woo {
       System.out.print("\u001b[38;2;180;180;180m");
       System.out.println("\nYou do not have enough Pokeballs."); // need pokeball to catch
       wait(1);
-      clipVictory.close();
+      // clipVictory.close();
     }
     else {
       if (random <= 6) { // catching is very likely
@@ -569,6 +627,8 @@ public class Woo {
     		AudioInputStream aisC = AudioSystem.getAudioInputStream(fileC);
     		Clip clipCatch = AudioSystem.getClip();
     		clipCatch.open(aisC);
+        FloatControl gainControl = (FloatControl) clipCatch.getControl(FloatControl.Type.MASTER_GAIN);
+        gainControl.setValue(-10.0f);
         clipCatch.start();
         System.out.print("\u001b[38;2;180;180;180m");
         System.out.println("\nCongratulations, you successfully caught a " + pokName._name + "!");
@@ -586,7 +646,7 @@ public class Woo {
         System.out.println();
         wait(1);
         clipCatch.close();
-        clipVictory.close();
+        // clipVictory.close();
       }
       else {
         wait(2);
@@ -596,7 +656,7 @@ public class Woo {
         name.displayInventory();
         System.out.println();
         wait(1);
-        clipVictory.close();
+        // clipVictory.close();
       }
     }
   }
@@ -608,7 +668,12 @@ public class Woo {
 		AudioInputStream ais = AudioSystem.getAudioInputStream(file);
 		Clip clipBattle = AudioSystem.getClip();
 		clipBattle.open(ais);
+    FloatControl gainControl = (FloatControl) clipBattle.getControl(FloatControl.Type.MASTER_GAIN);
+    gainControl.setValue(-30.0f);
     clipBattle.start();
+    clipBattle.loop(Clip.LOOP_CONTINUOUSLY);
+    // clipBattle.loop(clip.loop(Clip.LOOP_CONTINUOUSLY);
+    // Thread.sleep(10000);
 
     boolean result = false;
     wait(2);
@@ -754,7 +819,10 @@ public class Woo {
 		AudioInputStream ais = AudioSystem.getAudioInputStream(file);
 		Clip clipNurse = AudioSystem.getClip();
 		clipNurse.open(ais);
+    FloatControl gainControl = (FloatControl) clipNurse.getControl(FloatControl.Type.MASTER_GAIN);
+    gainControl.setValue(-30.0f);
     clipNurse.start();
+    clipNurse.loop(Clip.LOOP_CONTINUOUSLY);
 
     wait(2);
     System.out.print("\u001b[38;2;180;180;180m");
@@ -793,7 +861,10 @@ public class Woo {
 		AudioInputStream ais = AudioSystem.getAudioInputStream(file);
 		Clip clipGymFire = AudioSystem.getClip();
 		clipGymFire.open(ais);
+    FloatControl gainControl = (FloatControl) clipGymFire.getControl(FloatControl.Type.MASTER_GAIN);
+    gainControl.setValue(-30.0f);
     clipGymFire.start();
+    clipGymFire.loop(Clip.LOOP_CONTINUOUSLY);
 
     boolean badge = false;
     String answer = "";
@@ -921,7 +992,10 @@ public class Woo {
 		AudioInputStream ais = AudioSystem.getAudioInputStream(file);
 		Clip clipGymWater = AudioSystem.getClip();
 		clipGymWater.open(ais);
+    FloatControl gainControl = (FloatControl) clipGymWater.getControl(FloatControl.Type.MASTER_GAIN);
+    gainControl.setValue(-30.0f);
     clipGymWater.start();
+    clipGymWater.loop(Clip.LOOP_CONTINUOUSLY);
 
     boolean badge = false;
     String answer = "";
@@ -1075,7 +1149,10 @@ public class Woo {
 		AudioInputStream ais = AudioSystem.getAudioInputStream(file);
 		Clip clipGymGrass = AudioSystem.getClip();
 		clipGymGrass.open(ais);
+    FloatControl gainControl = (FloatControl) clipGymGrass.getControl(FloatControl.Type.MASTER_GAIN);
+    gainControl.setValue(-30.0f);
     clipGymGrass.start();
+    clipGymGrass.loop(Clip.LOOP_CONTINUOUSLY);
 
     boolean badge = false;
     String answer = "";
@@ -1224,12 +1301,15 @@ public class Woo {
     return badge;
   }
 
-  public static void gameSetup(Player player) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-    File file1 = new File("begin.au");
-		AudioInputStream ais = AudioSystem.getAudioInputStream(file1);
+  public static void gameSetup(Player player) throws UnsupportedAudioFileException, IOException, LineUnavailableException, Exception {
+    File file = new File("begin.au");
+		AudioInputStream ais = AudioSystem.getAudioInputStream(file);
 		Clip clipBegin = AudioSystem.getClip();
 		clipBegin.open(ais);
+    FloatControl gainControl = (FloatControl) clipBegin.getControl(FloatControl.Type.MASTER_GAIN);
+    gainControl.setValue(-30.0f);
     clipBegin.start();
+    clipBegin.loop(Clip.LOOP_CONTINUOUSLY);
 
     System.out.println("\033[2J"); // CLEAR SCREEN
     System.out.print("\033[?25l"); // HIDE CURSOR
@@ -1256,11 +1336,14 @@ public class Woo {
   }
 
   public static void chooseStarter(Player player) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-    File file = new File("starter.wav");
+    File file = new File("starter.au");
 		AudioInputStream ais = AudioSystem.getAudioInputStream(file);
 		Clip clipStarter = AudioSystem.getClip();
 		clipStarter.open(ais);
+    FloatControl gainControl = (FloatControl) clipStarter.getControl(FloatControl.Type.MASTER_GAIN);
+    gainControl.setValue(-30.0f);
     clipStarter.start();
+    clipStarter.loop(Clip.LOOP_CONTINUOUSLY);
 
     System.out.print("\033[?25l"); // HIDE CURSOR
     System.out.println();
@@ -1740,7 +1823,7 @@ public class Woo {
 		clipStarter.close();
   }
 
-  public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+  public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException, Exception {
     Player player = new Player();
 
     gameSetup(player);
