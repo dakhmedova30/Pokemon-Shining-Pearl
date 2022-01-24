@@ -1,1 +1,1 @@
-# Pokemon-Shining-Silver
+# Pokemon-Shining-Pearl
