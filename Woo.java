@@ -1787,7 +1787,7 @@ public class Woo {
     wait(2);
     System.out.print("\u001b[38;2;180;180;180m");
 
-    System.out.println("\nDo you wish to see the tutorial before beginning your Pokemon adventure?");
+    System.out.println("\nDo you wish to see the tutorial before beginning your Pokemon adventure? (yes/no)");
     wait(1);
     System.out.print("\u001b[38;2;255;255;255m");
     System.out.print("> ");
