@@ -10,7 +10,6 @@ import javax.sound.sampled.*;
 public class Woo {
 
   static Scanner in = new Scanner(System.in); // user inputs
-  //StdAudio: in game music
 
   // should generate a pokemon that is an instance of the type
   public static Pokemon generatePokemon(Player name, int type) {
@@ -618,12 +617,6 @@ public class Woo {
   }
 
   public static void catchP(Player name, Pokemon pokName, String region) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-    // File file = new File("victory.au");
-    // AudioInputStream ais = AudioSystem.getAudioInputStream(file);
-    // Clip clipVictory = AudioSystem.getClip();
-    // clipVictory.open(ais);
-    // clipVictory.start();
-
     int random = (int) ((Math.random() * 10));
     wait(2);
     System.out.print("\u001b[38;2;180;180;180m");
@@ -633,7 +626,6 @@ public class Woo {
       System.out.print("\u001b[38;2;180;180;180m");
       System.out.println("\nYou do not have enough Pokeballs."); // need pokeball to catch
       wait(1);
-      // clipVictory.close();
     }
     else {
       if (random <= 6) { // catching is very likely
@@ -660,7 +652,6 @@ public class Woo {
         System.out.println();
         wait(1);
         clipCatch.close();
-        // clipVictory.close();
       }
       else {
         wait(2);
@@ -670,7 +661,6 @@ public class Woo {
         name.displayInventory();
         System.out.println();
         wait(1);
-        // clipVictory.close();
       }
     }
   }
@@ -683,11 +673,9 @@ public class Woo {
 		Clip clipBattle = AudioSystem.getClip();
 		clipBattle.open(ais);
     FloatControl gainControl = (FloatControl) clipBattle.getControl(FloatControl.Type.MASTER_GAIN);
-    gainControl.setValue(-30.0f);
+    gainControl.setValue(-25.0f);
     clipBattle.start();
     clipBattle.loop(Clip.LOOP_CONTINUOUSLY);
-    // clipBattle.loop(clip.loop(Clip.LOOP_CONTINUOUSLY);
-    // Thread.sleep(10000);
 
     boolean result = false;
     wait(2);
@@ -1332,8 +1320,22 @@ public class Woo {
     System.out.println();
     wait(2);
     System.out.print("\u001b[38;2;180;180;180m");
-    System.out.println("Welcome, Trainer, to Pokemon Shining Pearl!");
-    wait(2);
+    System.out.println("\nWelcome, Trainer, to Pokemon Shining Pearl!");
+    wait(4);
+    System.out.println("\nA game full of adventure awaits you!");
+    wait(4);
+    System.out.print("\nBut first,");
+    wait(4);
+    System.out.print(" may I ask");
+    wait(3);
+    System.out.print(".");
+    wait(3);
+    System.out.print(".");
+    wait(3);
+    System.out.print(".");
+    wait(3);
+    System.out.println();
+    wait(3);
     System.out.println("\nWhat is your name?");
     wait(1);
     System.out.print("\u001b[38;2;255;255;255m");

@@ -266,7 +266,7 @@ static Scanner in = new Scanner(System.in);
           System.out.print("\u001b[38;2;180;180;180m");
           System.out.println("\u001b[38;2;243;113;66m" + _name + "'s \u001b[38;2;180;180;180mHP has been restored by 20!");
           wait(1);
-          System.out.println("Here is your Inventory:");
+          System.out.println("\nHere is your Inventory:");
           wait(1);
           Player.displayInventory();
         }
