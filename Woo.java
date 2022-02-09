@@ -124,7 +124,7 @@ public class Woo {
         if (name._numPokemon  < 4) { // cannot go to gym if player has less than four pokemon
           wait(2);
           System.out.print("\u001b[38;2;180;180;180m");
-          System.out.println("\nYou can not go to the gym with less than four Pokemon. You walk again...");
+          System.out.println("\nYou cannot go to the gym with less than four Pokemon. You walk again...");
           clipCity.close();
           return cont;
         }
@@ -198,7 +198,7 @@ public class Woo {
             if (name._numPokemon < 4) { // cannot go to gym if player has less than four pokemon
               wait(2);
               System.out.print("\u001b[38;2;180;180;180m");
-              System.out.println("\nYou can not go to the gym with less than four Pokemon. You walk again...");
+              System.out.println("\nYou cannot go to the gym with less than four Pokemon. You walk again...");
               clipCity.close();
               return cont;
             }
@@ -328,7 +328,7 @@ public class Woo {
         if (name._numPokemon < 4){ // cannot go to gym if player has less than four pokemon
           wait(2);
           System.out.print("\u001b[38;2;180;180;180m");
-          System.out.println("\nYou can not go to the gym with less than four Pokemon. You walk again...");
+          System.out.println("\nYou cannot go to the gym with less than four Pokemon. You walk again...");
           clipCity.close();
           return cont;
         }
@@ -455,7 +455,7 @@ public class Woo {
             if (name._numPokemon < 4) { // cannot go to gym if player has less than four pokemon
               wait(2);
               System.out.print("\u001b[38;2;180;180;180m");
-              System.out.println("\nYou can not go to the gym with less than four Pokemon. You walk again...");
+              System.out.println("\nYou cannot go to the gym with less than four Pokemon. You walk again...");
               clipCity.close();
               return cont;
             }

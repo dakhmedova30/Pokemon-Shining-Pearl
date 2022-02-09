@@ -93,7 +93,7 @@ static Scanner in = new Scanner(System.in);
     wait(1);
     System.out.println("\u001b[38;2;119;221;118mSafe Guard \u001b[38;2;180;180;180mis a power that protects the user, increases defense.");
     wait(1);
-    System.out.println("\u001b[38;2;119;221;118mRest makes \u001b[38;2;180;180;180mthe user take a nap to restore PP.");
+    System.out.println("\u001b[38;2;119;221;118mRest \u001b[38;2;180;180;180mmakes the user take a nap to restore PP.");
   }
 
 
